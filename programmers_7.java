@@ -35,20 +35,21 @@ public class Main{
             for(int j = 0 ; j < skill.length() ; j++){ //sKill의 문자하나씩 반복
                 for(int k = 0 ; k < skill_trees[i].length() ; k++){ 
                     if (skill.charAt(j) == skill_trees[i].charAt(k)){
-                        result[j] = k;//인덱스가0인값땜에
+                        result[j] = k;
                         break;
                     }else{
-                        result[j] = -1;//인덱스가0인값땜에
+                        result[j] = 100;//스킬트리에 존재하지않으면 맥스값으로 설정
                     }
                 }
             }
-
-            for (int j = 0 ; j < result.length ; j++){
-                System.out.print(result[j]);
-            }
+            
+            // for (int j = 0 ; j < result.length ; j++){
+            //     System.out.print(result[j]);
+            //     //System.out.println();
+            // }
 
             for(int j = 1 ; j < result.length ; j++){
-                if (result[j]!=0 && result[j-1]==0){
+                if (result[j]!=100 && result[j-1]==100){ //선행스킬이 없으면 flag = false;
                     flag = false;
                     break;
                 }
